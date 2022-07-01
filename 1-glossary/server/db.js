@@ -1,6 +1,14 @@
 const mongoose = require("mongoose");
 
-// 1. Use mongoose to establish a connection to MongoDB
-// 2. Set up any schema and models needed by the app
-// 3. Export the models
-// 4. Import the models into any modules that need them
+mongoose.connect('mongodb://localhost/glossary',
+                 {useNewUrlParser: true, useUnifiedTopology: true})
+        .then(() => {
+          console.log('MANGO CONNECTION OPEN!!')
+        })
+        .catch((err) => {
+          console.log('OH ERROR ABOUT MANGO CONNECTION!!');
+          console.log(err)
+        })
+
+// Test if Mango works in mongoDB: db.glossaries.find()
+// Clear the collection: db.glossaries.remove({})
